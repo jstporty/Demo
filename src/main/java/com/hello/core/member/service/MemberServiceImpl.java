@@ -4,6 +4,7 @@ import com.hello.core.member.Member;
 import com.hello.core.member.repository.MemberRepository;
 import com.hello.core.member.repository.MemoryMemberRepository;
 import com.hello.core.member.service.MemberService;
+import com.hello.core.order.service.OrderService;
 
 public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
@@ -19,5 +20,10 @@ public class MemberServiceImpl implements MemberService {
 
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);
+    }
+
+    //테스트 용도
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
     }
 }

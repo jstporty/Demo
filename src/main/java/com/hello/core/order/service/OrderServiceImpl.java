@@ -1,11 +1,8 @@
 package com.hello.core.order.service;
 
 import com.hello.core.discount.DiscountPolicy;
-import com.hello.core.discount.FixDiscountPloicy;
-import com.hello.core.discount.RateDiscountPolicy;
 import com.hello.core.member.Member;
 import com.hello.core.member.repository.MemberRepository;
-import com.hello.core.member.repository.MemoryMemberRepository;
 import com.hello.core.order.Order;
 
 public class OrderServiceImpl implements OrderService {
@@ -26,5 +23,10 @@ public class OrderServiceImpl implements OrderService {
         Member member = memberRepository.findById(memberId);
         int discountPrice = discountPolicy.discount(member, itemPrice);
         return new Order(memberId, itemName, itemPrice, discountPrice);
+    }
+
+    //테스트 용도
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
     }
 }
