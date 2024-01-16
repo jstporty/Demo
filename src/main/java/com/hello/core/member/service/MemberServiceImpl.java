@@ -5,10 +5,14 @@ import com.hello.core.member.repository.MemberRepository;
 import com.hello.core.member.repository.MemoryMemberRepository;
 import com.hello.core.member.service.MemberService;
 import com.hello.core.order.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
